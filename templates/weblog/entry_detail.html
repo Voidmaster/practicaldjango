@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+
+{% block content %}
+	
+	<div id="article">
+		<h1>{{ object.title }}</h1>
+		Fecha: {{ object.pub_date}} </br>
+		<img src="{{ object.image.url }}" alt="">
+		{{ object.body_html|safe }}
+		Tags: {{ object.tags }} </br>
+		Categoría: {% for category in entry.categories.all %}{{ category }}{% endfor %} </br>
+		Publicado por: {{ object.author }}
+	</div>
+		
+{% endblock content %}
+
+{% block buscador %}
+	
+	<div id="buscador">
+		
+	</div>
+
+{% endblock buscador %}

@@ -1,0 +1,76 @@
+{% extends "base_entries.html" %}
+
+{% block title %} {{ block.super }} | Ultimas noticias {% endblock title %}
+
+{% block slider %}
+
+	<div id="slider">
+			
+
+			<div id="img">
+				<img src="/static/weblog/images/slider.jpg" alt="">
+				<img src="/static/weblog/images/slider2.jpg" alt="">
+				<img src="/static/weblog/images/slider3.jpg" alt="">
+			</div>
+
+		</div>	
+		
+{% endblock slider %}
+
+{% block content %}
+
+	<div id="contenido">
+
+		<div id="sidebar">
+			<div id="inst">
+			asdasd
+			</div>
+			<div id="discos">
+				<div class="disk">asd</div>
+				<div class="disk">asd</div>
+				<div class="disk">asd</div>
+				
+			</div>
+			<div class="clear"></div>
+			<div id="ad"></div>
+		</div>
+		
+		<div id="main">
+			{% for entry in entry_list %}
+				<div class="news">
+					<div class="categoria">
+						{% for category in entry.categories.all %}
+							{{ category }}
+						{% endfor %}
+					</div>
+					<div class="img">
+						<img class="thumb" src="{{ entry.image.url }}" alt="" width="170" height="140">
+						<div class="title">
+							{{ entry.title }}
+						</div>
+					</div>
+					<div class="contenido">
+						{{ entry.body|truncatewords:"8" }}
+						<a href="{{ entry.get_absolute_url }}">Leer más</a></br></br>
+					</div>
+				</div>		
+			{% endfor %}
+		</div>
+
+		<div id="media">
+			
+		</div>
+
+
+			
+		<div class="clear"></div>
+
+
+
+
+
+	</div>	
+
+{% endblock content %}
+
+

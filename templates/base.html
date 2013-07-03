@@ -1,0 +1,162 @@
+<!doctype html>
+<html lang="en">
+<head>
+
+	<meta charset="UTF-8">
+	<title>{% block title %}{% endblock title %}</title>
+	{% load staticfiles %}
+	<link rel="stylesheet" href="{% static "weblog/style.css" %}" />
+	<script type="text/javascript" src="{% static "weblog/scripts/jquery-1.js" %}"></script>
+	<script type="text/javascript" src="{% static "weblog/scripts/jquery.js" %}"></script>
+	<script type="text/javascript" src="{% static "weblog/scripts/cloud-carousel.1.0.5.min.js" %}"></script>
+	<script>
+
+		$(document).ready(function() {
+    		$('#img').cycle({
+				fx: 'scrollRight',
+				speed: 1000,
+				pause: true 
+			});
+
+			$('#servicios').cycle({
+				fx: 'wipe',
+				delay: -2000,
+				speed: 750 
+			});
+
+			$('#texto').cycle({
+				fx: 'fadeZoom' 
+			});
+
+			$("ul.subnav").parent().append("<span></span>");
+	
+			$("ul.topnav li span").hover(function() { //When trigger is clicked...
+		
+		
+				$(this).parent().find("ul.subnav").slideDown('fast').show();
+				$(this).parent().hover(function() {
+				}, function(){	
+					$(this).parent().find("ul.subnav").slideUp('slow'); 
+				});
+
+		
+			}).hover(function() { 
+				$(this).addClass("subhover"); 
+			}, function(){	
+				$(this).removeClass("subhover"); 
+			});
+
+			$("#carousel1").CloudCarousel(		
+					{			
+						xPos: 128,
+						yPos: 32,
+						buttonLeft: $("#left-but"),
+						buttonRight: $("#right-but"),
+						altBox: $("#alt-text"),
+						titleBox: $("#title-text"),
+						speed: 0.3,
+						autoRotate: 'left'
+					}
+			);
+
+			$('#dest').hover(function(){
+				$('.texto').animate({ bottom: "0"});
+			}, function(){
+				$('.texto').animate({ bottom: "-80"});
+			});
+
+			$('#dest2').hover(function(){
+				$('.texto2').animate({ bottom: "0"});
+			}, function(){
+				$('.texto2').animate({ bottom: "-80"});
+			});
+
+			$('#dest3').hover(function(){
+				$('.texto3').animate({ bottom: "0"});
+			}, function(){
+				$('.texto3').animate({ bottom: "-80"});
+			});
+
+			$('#dest4').hover(function(){
+				$('.texto4').animate({ bottom: "0"});
+			}, function(){
+				$('.texto4').animate({ bottom: "-80"});
+			});
+			
+		});
+		
+	</script>	
+
+</head>
+<body> 
+	
+	<div id="buscador">
+		<form action="">
+			<input type="text" value="Ingrese su búsqueda">
+			<input type="submit" value="Buscar">
+			<input type="radio" name="filtro" value="artistas" checked>Artistas
+			<input type="radio" name="filtro" value="noticias">Noticias
+		</form>
+	</div>
+
+	<center>
+		<header>
+			<nav>
+				
+			</nav>
+		</header>
+	</center>
+
+	<div id="wrapper">
+
+		{% block slider %}			
+		{% endblock slider %}
+		
+		<div id="content">
+					
+			{% block content %}				
+			{% endblock content %}			
+
+		</div>
+
+		<div id="destacados">
+			<div id="dest">
+				<div class="texto">
+					<div class="titulo">Noticia destacada 1</div>
+					<div class="info">
+						Acá va una noticia destacada para que se muestre en todas las páginas.
+					</div>
+				</div>
+			</div>
+			<div id="dest2">
+				<div class="texto2">
+					<div class="titulo">Noticia destacada 2</div>
+					<div class="info">
+						Acá va una noticia destacada para que se muestre en todas las páginas.
+					</div>
+				</div>
+			</div>
+			<div id="dest3">
+				<div class="texto3">
+					<div class="titulo">Noticia destacada 3</div>
+					<div class="info">
+						Acá va una noticia destacada para que se muestre en todas las páginas.
+					</div>
+				</div>
+			</div>
+			<div id="dest4">
+				<div class="texto4">
+					<div class="titulo">Noticia destacada 4</div>
+					<div class="info">
+						Acá va una noticia destacada para que se muestre en todas las páginas.
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div id="footer"></div>
+
+	</div>
+	
+</body>
+</html>
