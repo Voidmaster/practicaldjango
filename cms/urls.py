@@ -1,9 +1,8 @@
 from django.conf.urls import patterns, include, url
 from django.views.generic import DetailView, ListView
 
-from weblog.models import Entry
-
 from weblog.models import Entry, Artista
+from weblog.views import EncuestaActivaView
 
 
 # Uncomment the next two lines to enable the admin:
@@ -33,6 +32,8 @@ urlpatterns = patterns('',
    
     url(r'^admin/', include(admin.site.urls)),
     url(r'^search/$', 'search.views.search'),
+    #url(r'^weblog/encuesta/$', EncuestaActivaView.as_view(), name='encuesta_activa'),
+    #url(r'^weblog/votar_encuesta/$', VotarEncuestaView.as_view(), name='votar_encuesta'),
 )
 
 from django.conf import settings

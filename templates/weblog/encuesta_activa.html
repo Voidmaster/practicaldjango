@@ -1,0 +1,8 @@
+{{ encuesta_activa.titulo }}
+<div>
+<form action="">
+{% for opcion in opciones_encuesta %}
+<option name="" value="{{ opcion.id }}">{{ opcion.texto }}</option>
+{% endfor %}
+</form>
+</div>

@@ -96,11 +96,7 @@ class OpcionEncuesta(models.Model):
     texto = models.CharField(max_length=100)
     encuesta = models.ForeignKey(Encuesta)
     votos = models.IntegerField(default=0)
-    
-    def __unicode__(self):
-       return self.texto
-
 
     def __unicode__(self):
-        return self.nombre
+        return self.texto
 
