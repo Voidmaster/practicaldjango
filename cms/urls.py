@@ -1,6 +1,10 @@
 from django.conf.urls import patterns, include, url
 from django.views.generic import DetailView, ListView
+
 from weblog.models import Entry
+
+from weblog.models import Entry, Artista
+
 
 # Uncomment the next two lines to enable the admin:
 from django.contrib import admin
@@ -18,6 +22,14 @@ urlpatterns = patterns('',
     		model=Entry,
     		template_name='weblog/entry_detail.html'),
     		name='detail'),
+
+    url(r'^weblog/artistas/$',
+        ListView.as_view(
+            queryset=Artista.objects.all(),
+            context_object_name='artistas',
+            template_name="weblog/artistas.html"),
+            name="artistas"),
+
    
     url(r'^admin/', include(admin.site.urls)),
     url(r'^search/$', 'search.views.search'),

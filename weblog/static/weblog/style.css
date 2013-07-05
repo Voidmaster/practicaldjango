@@ -401,3 +401,28 @@ html ul.topnav li ul.subnav li a {
 html ul.topnav li ul.subnav li a:hover { 
 	background: #222 url(dropdown_linkbg.gif) no-repeat 10px center; 
 }
+
+
+
+
+#artistas {
+	position: relative;
+	width: 100%;
+	height: 600px;
+}
+
+.arts {
+	position: relative;
+	float: left;
+	width: 200px;
+	height: 200px;
+	background: white;
+}
+
+#encuesta {
+	position: relative;
+	float: right;
+	height: 330px;
+	width: 300px;
+	background: black;
+}

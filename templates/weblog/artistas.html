@@ -1,0 +1,15 @@
+{% extends "base_entries.html" %}
+
+{% block content %}
+
+<div id="artistas">
+	
+	{% for artista in artistas %}
+		<div class="arts">
+			{{ artista.nombre }}
+		</div>		
+	{% endfor %}
+
+</div>
+	
+{% endblock content %}

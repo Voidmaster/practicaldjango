@@ -9,7 +9,6 @@ from tagging.fields import TagField
 
 from markdown import markdown
 
-
 class Category(models.Model):
     title = models.CharField(max_length=250)
     description = models.TextField()
@@ -100,4 +99,8 @@ class OpcionEncuesta(models.Model):
     
     def __unicode__(self):
        return self.texto
+
+
+    def __unicode__(self):
+        return self.nombre
 
