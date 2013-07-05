@@ -406,6 +406,7 @@ html ul.topnav li ul.subnav li a:hover {
 
 
 #artistas {
+	padding-top: 200px;
 	position: relative;
 	width: 100%;
 	height: 600px;
@@ -425,4 +426,10 @@ html ul.topnav li ul.subnav li a:hover {
 	height: 330px;
 	width: 300px;
 	background: black;
+}
+
+.pagination {
+	position: relative;
+	background: red;
+	top: 300px;
 }

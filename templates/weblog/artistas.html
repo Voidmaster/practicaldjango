@@ -10,6 +10,21 @@
 		</div>		
 	{% endfor %}
 
+<div class="pagination">
+    <span class="step-links">
+        {% if sartista.has_previous %}
+            <a href="?page={{ artistas.previous_page_number }}">previous</a>
+        {% endif %}
+
+        <span class="current">
+            Page {{ artistas.number }} of {{ artistas.paginator.num_pages }}.
+        </span>
+
+        {% if artistas.has_next %}
+            <a href="?page={{ artista.next_page_number }}">next</a>
+        {% endif %}
+    </span>
+</div>	
 </div>
 	
 {% endblock content %}

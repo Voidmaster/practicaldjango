@@ -26,9 +26,15 @@ urlpatterns = patterns('',
         ListView.as_view(
             queryset=Artista.objects.all(),
             context_object_name='artistas',
-            template_name="weblog/artistas.html"),
+            template_name="weblog/artistas.html",
+            paginate_by=1),
             name="artistas"),
 
+    url(r'^weblog/artistas/(?P<slug>[-\w]+)/$',
+        DetailView.as_view(
+            model=Artista,
+            template_name='weblog/artista_detail.html'),
+            name='detalle'),
    
     url(r'^admin/', include(admin.site.urls)),
     url(r'^search/$', 'search.views.search'),

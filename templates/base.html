@@ -6,9 +6,12 @@
 	<title>{% block title %}{% endblock title %}</title>
 	{% load staticfiles %}
 	<link rel="stylesheet" href="{% static "weblog/style.css" %}" />
+	<link rel="stylesheet" href="{% static "weblog/inlineplayer.css" %}" />
 	<script type="text/javascript" src="{% static "weblog/scripts/jquery-1.js" %}"></script>
 	<script type="text/javascript" src="{% static "weblog/scripts/jquery.js" %}"></script>
 	<script type="text/javascript" src="{% static "weblog/scripts/cloud-carousel.1.0.5.min.js" %}"></script>
+	<script type="text/javascript" src="{% static "weblog/scripts/sound.js" %}"></script>
+	<script type="text/javascript" src="{% static "weblog/scripts/inlineplayer.js" %}"></script>
 	<script>
 
 		$(document).ready(function() {
@@ -85,7 +88,7 @@
 			
 		});
 		
-	</script>	
+	</script>
 
 </head>
 <body> 

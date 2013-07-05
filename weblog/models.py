@@ -75,6 +75,8 @@ class Artista(models.Model):
     tema3 = models.FileField(upload_to='media')
     descripcion = models.TextField()
     imagen = models.ImageField(upload_to='media')
+
+    slug = models.SlugField()
     
     class Meta:
         verbose_name_plural = "Artistas"
@@ -99,4 +101,5 @@ class OpcionEncuesta(models.Model):
 
     def __unicode__(self):
         return self.texto
+
 
