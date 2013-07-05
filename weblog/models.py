@@ -10,8 +10,6 @@ from tagging.fields import TagField
 from markdown import markdown
 
 
-
-
 class Category(models.Model):
     title = models.CharField(max_length=250)
     description = models.TextField()
@@ -70,4 +68,36 @@ class Entry(models.Model):
 
     categories = models.ManyToManyField(Category)
     tags = TagField()
+
+class Artista(models.Model):
+    nombre = models.CharField(max_length=100)
+    tema1 = models.FileField(upload_to='media')
+    tema2 = models.FileField(upload_to='media')
+    tema3 = models.FileField(upload_to='media')
+    descripcion = models.TextField()
+    imagen = models.ImageField(upload_to='media')
+    
+    class Meta:
+        verbose_name_plural = "Artistas"
+    
+    def __unicode__(self):
+        return self.nombre
+
+
+class Encuesta(models.Model):
+    titulo = models.CharField(max_length=100)
+    activa = models.BooleanField()
+    fecha_publicacion = models.DateField()
+    
+    def __unicode__(self):
+       return self.titulo
+
+
+class OpcionEncuesta(models.Model):
+    texto = models.CharField(max_length=100)
+    encuesta = models.ForeignKey(Encuesta)
+    votos = models.IntegerField(default=0)
+    
+    def __unicode__(self):
+       return self.texto
 
