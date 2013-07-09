@@ -26,13 +26,29 @@
 			asdasd
 			</div>
 			<div id="discos">
-				<div class="disk">asd</div>
-				<div class="disk">asd</div>
-				<div class="disk">asd</div>
+				<div id="disc-container">
+					<div class="disk"></div>
+					<div class="disk"></div>
+					<div class="disk"></div>
+				</div>
+
+				<div id="disc-container2">
+					<div class="disk"></div>
+					<div class="disk"></div>
+					<div class="disk"></div>
+				</div>
+
+				<div id="disc-container3">
+					<div class="disk"></div>
+					<div class="disk"></div>
+					<div class="disk"></div>
+				</div>
 				
 			</div>
 			<div class="clear"></div>
 			<div id="ad"></div>
+			<div id="ad2"></div>
+			<div id="ad3"></div>
 		</div>
 		
 		<div id="main">
@@ -50,7 +66,7 @@
 						</div>
 					</div>
 					<div class="contenido">
-						{{ entry.body|truncatewords:"8" }}
+						{{ entry.body|truncatewords:"5" }}
 						<a href="{{ entry.get_absolute_url }}">Leer más</a></br></br>
 					</div>
 				</div>		
@@ -59,6 +75,9 @@
 
 		<div id="media">
 			<div id="encuesta"></div>
+			<div id="facebook"></div>
+			<div class="publicidades"></div>
+			<div id="googlex"></div>
 			
 		</div>
 

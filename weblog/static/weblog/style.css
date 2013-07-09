@@ -116,6 +116,7 @@ nav {
 
 #contenido {
 	position: relative;
+	height: 1000px;
 	padding: 2px;
 }
 
@@ -130,17 +131,48 @@ nav {
 	position: relative;
 	width: 646px;
 	float: right;
-	height: 215px;
-	margin-top: 4px;
+	height: 206px;
+	background: yellow;
+	margin-top: 17px;
 }
 
 .disk {
 	position: relative;
 	float: left;
 	width: 207px;
-	margin: 3px;
-	height: 200px;
+	margin: 4px;
+	height: 185px;
 	background: black;
+}
+
+#disc-container {
+	position: relative;
+	background: white;
+	margin: 1px;
+	height: 195px;
+	width: 210px;
+	float: left;
+	border: 1px solid green;
+}
+
+#disc-container2 {
+	position: relative;
+	background: white;
+	margin: 1px;
+	height: 195px;
+	width: 210px;
+	float: left;
+	border: 1px solid green;
+}
+
+#disc-container3 {
+	position: relative;
+	background: white;
+	margin: 1px;
+	height: 195px;
+	width: 210px;
+	float: left;
+	border: 1px solid green;
 }
 
 #main {
@@ -150,7 +182,9 @@ nav {
 #inst {
 	position: relative;
 	width: 300px;
-	height: 215px;
+	background: black;
+	border: 1px solid yellow;
+	height: 200px;
 	margin-top: 2px;
 }
 
@@ -159,6 +193,7 @@ nav {
 	height: 400px;
 	width: 694px;
 	float: left;
+	margin-left: 1px;
 }
 
 .news {
@@ -175,10 +210,35 @@ nav {
 
 #ad {
 	position: relative;
-	height: 300px;
+	height: 150px;
 	width: 100%;
 	background: black;
-	margin-top: 2px;
+	margin-top: 10px;
+}
+
+#ad2 {
+	position: relative;
+	height: 220px;
+	width: 100%;
+	background: black;
+	margin-top: 6px;
+}
+
+#ad3 {
+	position: relative;
+	height: 150px;
+	width: 100%;
+	background: black;
+	margin-top: 6px;
+}
+
+#googlex {
+	position: relative;
+	height: 100px;
+	width: 685px;
+	float: left;
+	margin-top: 5px;
+	background: black;
 }
 
 /* SIDEBAR */
@@ -422,14 +482,34 @@ html ul.topnav li ul.subnav li a:hover {
 
 #encuesta {
 	position: relative;
-	float: right;
-	height: 330px;
+	float: left;
+	height: 450px;
 	width: 300px;
-	background: black;
+	background: url(image/facebook2.png);
 }
 
 .pagination {
 	position: relative;
 	background: red;
 	top: 300px;
+}
+
+#facebook {
+	position: relative;
+	float: left;
+	background: black;
+	border:1 px solid yellow;
+	height: 210px;
+	width: 375px;
+	margin-left: 10px;
+}
+
+.publicidades {
+	position: relative;
+	float: left;
+	height: 236px;
+	width: 375px;
+	background: black;
+	margin-left: 10px;
+	margin-top: 4px;
 }
