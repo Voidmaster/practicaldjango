@@ -23,14 +23,18 @@ DATABASES = {
 #        'HOST': '',                      # Empty for localhost through domain sockets or '127.0.0.1' for localhost through TCP.
 #        'PORT': '',                      # Set to empty string for default.
 #    }
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql_psycopg2', # Add 'postgresql_psycopg2', 'mysql', 'sqlite3' or 'oracle'.
-        'NAME': 'elzainodb',                      # Or path to database file if using sqlite3.
-        # The following settings are not used with sqlite3:
-        'USER': 'elzaino',
-        'PASSWORD': 'maceta',
-        'HOST': '127.0.0.1',}                      # Empty for localhost through domain sockets or '127.0.0.1' for localhost through TCP.
+                         # Empty for localhost through domain sockets or '127.0.0.1' for localhost through TCP.
 
+    'default': {
+        'ENGINE': 'django.db.backends.sqlite3', # Add 'postgresql_psycopg2', 'mysql', 'sqlite3' or 'oracle'.
+        'NAME': './cms/sqlite.db',                      # Or path to database file if using sqlite3.
+        # The following settings are not used with sqlite3:
+        'USER': '',
+        'PASSWORD': '',
+        'HOST': '',                      # Empty for localhost through domain sockets or '127.0.0.1' for localhost through TCP.
+
+        'PORT': '',                      # Set to empty string for default.
+    }
 }
 
 # Hosts/domain names that are valid for this site; required if DEBUG is False
@@ -85,8 +89,8 @@ STATICFILES_DIRS = ()
 # List of finder classes that know how to find static files in
 # various locations.
 STATICFILES_FINDERS = (
-    'django.contrib.staticfiles.finders.FileSystemFinder',
     'django.contrib.staticfiles.finders.AppDirectoriesFinder',
+    'django.contrib.staticfiles.finders.FileSystemFinder',
 #    'django.contrib.staticfiles.finders.DefaultStorageFinder',
 )
 
@@ -120,6 +124,7 @@ TEMPLATE_DIRS = (
 )
 
 INSTALLED_APPS = (
+    'grappelli',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
