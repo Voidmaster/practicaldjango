@@ -9,6 +9,12 @@ from tagging.fields import TagField
 
 from markdown import markdown
 
+class Disco(models.Model):
+    titulo = models.CharField(max_length=100)
+    
+    def __unicode__(self):
+        return self.titulo
+
 class Category(models.Model):
     title = models.CharField(max_length=250)
     description = models.TextField()
@@ -55,7 +61,9 @@ class Entry(models.Model):
     pub_date = models.DateTimeField(default=datetime.datetime.now)
 
     image = models.ImageField(upload_to='media')
-    
+
+    video = models.CharField(max_length=250)
+
     author = models.ForeignKey(User)
     enable_comments = models.BooleanField(default=True)
     featured = models.BooleanField(default=False)
@@ -68,22 +76,39 @@ class Entry(models.Model):
     categories = models.ManyToManyField(Category)
     tags = TagField()
 
+class Genero(models.Model):
+    nombre = models.CharField(max_length=50)
+    slug = models.SlugField()
+    descripcion = models.TextField(max_length=150)
+
+    class Meta:
+        verbose_name_plural = "Generos"
+
+    def __unicode__(self):
+        return self.nombre     
+
 class Artista(models.Model):
     nombre = models.CharField(max_length=100)
-    tema1 = models.FileField(upload_to='media')
-    tema2 = models.FileField(upload_to='media')
-    tema3 = models.FileField(upload_to='media')
-    descripcion = models.TextField()
-    imagen = models.ImageField(upload_to='media')
-
     slug = models.SlugField()
-    
+    imagen = models.ImageField(upload_to='media')
+    genero = models.ManyToManyField(Genero)    
+
     class Meta:
         verbose_name_plural = "Artistas"
     
     def __unicode__(self):
         return self.nombre
 
+class Cancion(models.Model):
+    titulo = models.CharField(max_length=100)
+    mp3 = models.FileField(upload_to='media', blank=True)
+    artista = models.ForeignKey(Artista)
+
+    class Meta:
+        verbose_name_plural = "Canciones"	
+    
+    def __unicode__(self):
+        return self.titulo
 
 class Encuesta(models.Model):
     titulo = models.CharField(max_length=100)
@@ -92,7 +117,6 @@ class Encuesta(models.Model):
     
     def __unicode__(self):
        return self.titulo
-
 
 class OpcionEncuesta(models.Model):
     texto = models.CharField(max_length=100)

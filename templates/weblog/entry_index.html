@@ -4,8 +4,7 @@
 
 {% block slider %}
 
-	<div id="slider">
-			
+	<div id="slider">		
 
 			<div id="img">
 				<img src="/static/weblog/images/slider.jpg" alt="">
@@ -13,85 +12,111 @@
 				<img src="/static/weblog/images/slider3.jpg" alt="">
 			</div>
 
-		</div>	
+	</div>	
 		
 {% endblock slider %}
 
 {% block content %}
 
 	<div id="contenido">
-
-		<div id="sidebar">
-			<div id="inst">
-			asdasd
-			</div>
-			<div id="discos">
-				<div id="disc-container">
-					<div class="disk"></div>
-					<div class="disk"></div>
-					<div class="disk"></div>
-				</div>
-
-				<div id="disc-container2">
-					<div class="disk"></div>
-					<div class="disk"></div>
-					<div class="disk"></div>
-				</div>
-
-				<div id="disc-container3">
-					<div class="disk"></div>
-					<div class="disk"></div>
-					<div class="disk"></div>
-				</div>
-				
-			</div>
-			<div class="clear"></div>
-			<div id="ad"></div>
-			<div id="ad2"></div>
-			<div id="ad3"></div>
-		</div>
-		
-		<div id="main">
-			{% for entry in entry_list %}
-				<div class="news">
-					<div class="categoria">
-						{% for category in entry.categories.all %}
-							{{ category }}
-						{% endfor %}
-					</div>
-					<div class="img">
-						<img class="thumb" src="{{ entry.image.url }}" alt="" width="170" height="140">
-						<div class="title">
-							{{ entry.title }}
+			
+			<div id="noticias">
+				{% for entry in entry_list %}
+					<div class="news">
+						<div class="categoria">
+							{% for category in entry.categories.all %}
+								{{ category }}
+							{% endfor %}
 						</div>
-					</div>
-					<div class="contenido">
-						{{ entry.body|truncatewords:"5" }}
-						<a href="{{ entry.get_absolute_url }}">Leer más</a></br></br>
-					</div>
-				</div>		
-			{% endfor %}
-		</div>
+						<div class="img">
+							<img class="thumb" src="{{ entry.image.url }}" alt="" width="167" height="140">
+							<div class="title">
+								{{ entry.title|truncatewords:"2" }}
+							</div>
+						</div>
+						<div class="contenido">
+							{{ entry.body|truncatewords:"4" }}
+							<a href="{{ entry.get_absolute_url }}">Leer más</a></br></br>
+						</div>
+					</div>		
+				{% endfor %}
+			</div>
 
-		<div id="media">
-			<div id="encuesta"></div>
-			<div id="facebook"></div>
-			<div class="publicidades"></div>
-			<div id="googlex"></div>
+			<div id="institucional">
+				<object type="application/x-shockwave-flash" data="/static/weblog/images/publicidad4.swf" width="305" height="205">
+				    <param name="movie" value="/static/weblog/scripts/publicidad4.swf" />
+				    <param name="quality" value="high" />
+				    <param name="wmode" value="transparent" />
+				    <img src="noflash.png" width="305" height="205" alt="Imagen en sustitución de flash" />
+				</object>
+			</div>
+
+			<div id="discos">
+				
+				<div id="disk-container">
+					<ul id="car">						   
+						   <li>
+							   	<img src="/static/weblog/images/rect_discos/disco1.jpg" alt="">	
+						   </li>
+						   <li>
+							   	<img src="/static/weblog/images/rect_discos/disco2.jpg" alt="">		
+						   </li>
+						   <li>
+							   	<img src="/static/weblog/images/rect_discos/disco3.jpg" alt="">		
+						   </li>
+						   <li>
+							  	<img src="/static/weblog/images/rect_discos/disco4.jpg" alt="">	
+						   <li>
+							   	<img src="/static/weblog/images/rect_discos/disco5.jpg" alt="">	
+						   </li>
+						   <li>
+							   	<img src="/static/weblog/images/rect_discos/disco6.jpg" alt="">	
+						   </li>
+						   <li>
+							   	<img src="/static/weblog/images/rect_discos/disco7.jpg" alt="">	
+						   </li>
+						   <li>
+							   	<img src="/static/weblog/images/rect_discos/disco8.jpg" alt="">	
+						   </li>
+
+					</ul>
+				</div>
+
+			</div>
+
+			<div class="clear"></div>
+
+			<div id="media">
+				
+				<div id="facebook"></div>
+
+				<div id="encuesta"><iframe src="{% url 'encuesta_activa' %}" height="350px" width="384px" frameBorder="0"></iframe></div>
+
+				<div id="inst"></div>
+
+			</div>
+
+			<div id="side">
+				
+				<div id="locutor">
+					<object type="application/x-shockwave-flash" data="/static/weblog/scripts/publicidad.swf" width="305" height="200">
+				    <param name="movie" value="/static/weblog/scripts/publicidad.swf" />
+				    <param name="quality" value="high" />
+				    <param name="wmode" value="transparent" />
+				    <img src="noflash.png" width="300" height="200" alt="Imagen en sustitución de flash" />
+				</object>
+				</div>
+
+				<div id="google">
+					
+				</div>
+
+				<div id="crack">
+					
+				</div>
+
+			</div>
 			
-		</div>
-
-
-			
-		
-
-		
-
-
-			
-		<div class="clear"></div>
-
-
 
 
 

@@ -3,28 +3,84 @@
 {% block content %}
 
 <div id="artistas">
-	
-	{% for artista in artistas %}
-		<div class="arts">
-			{{ artista.nombre }}
-		</div>		
-	{% endfor %}
 
-<div class="pagination">
-    <span class="step-links">
-        {% if sartista.has_previous %}
-            <a href="?page={{ artistas.previous_page_number }}">previous</a>
-        {% endif %}
+    <div id="generos">
+        <p id="gen">
+            Chamamé - HipHop - Cumbia - Rock - Payadores - Folklore
+        </p>
+    
+        <p id="abecedario">
+            {% for letter in "ABCDEFGHIJKLMNOPQRSTUVWXYZ" %}
+                <a href="{% url 'paginacion_artistas' %}?letra={{ letter }}">{{ letter }}</a>
+            {% endfor %}
+        </p>
+    </div>
 
-        <span class="current">
-            Page {{ artistas.number }} of {{ artistas.paginator.num_pages }}.
-        </span>
+    <div id="arts">
+    	{% for artista in artistas %}
+    		<div class="arts">
 
-        {% if artistas.has_next %}
-            <a href="?page={{ artista.next_page_number }}">next</a>
-        {% endif %}
-    </span>
-</div>	
+    			<a onclick="PopupCenter('{{ artista.slug }}', 'myPop1',800,450);" href="javascript:void(0);"><img src="{{ artista.imagen.url }}" alt="" width="180" height="180"></a>
+                <div class="titu">
+                    
+                </div>
+    		</div>		
+    	{% endfor %}
+
+        <div class="pagination">
+            <span class="step-links">
+                {% if page_obj.has_previous %}
+                    <a href="?page={{ page_obj.previous_page_number }}">previous</a>
+                {% endif %}
+
+                <span class="current">
+                    Página {{ page_obj.number }} de {{ page_obj.paginator.num_pages }}
+                </span>
+
+                {% if artistas.has_next %}
+                    <a href="?page={{ page_obj.next_page_number }}">next</a>
+                {% endif %}
+            </span>
+        </div>  
+    </div>
+
+    <div id="bottom-bar">
+
+        <div id="institucional2">
+                <object type="application/x-shockwave-flash" data="/static/weblog/images/publicidad4.swf" width="305" height="205">
+                    <param name="movie" value="/static/weblog/scripts/publicidad2.swf" />
+                    <param name="quality" value="high" />
+                    <param name="wmode" value="transparent" />
+                    <img src="noflash.png" width="300" height="200" alt="Imagen en sustitución de flash" />
+                </object>
+        </div>
+
+        <div id="google2">
+                    
+        </div>
+
+        <div id="locutor2">
+                    <object type="application/x-shockwave-flash" data="/static/weblog/scripts/publicidad.swf" width="305" height="200">
+                        <param name="movie" value="/static/weblog/scripts/publicidad.swf" />
+                        <param name="quality" value="high" />
+                        <param name="wmode" value="transparent" />
+                        <img src="noflash.png" width="300" height="200" alt="Imagen en sustitución de flash" />
+                    </object>
+        </div>
+
+        
+
+    </div>
+
+
 </div>
+
+<script>
+function PopupCenter(pageURL, title,w,h) {
+    var left = (screen.width/2)-(w/2);
+    var top = (screen.height/2)-(h/2);
+    var targetWin = window.open (pageURL, title, 'toolbar=no, location=no, directories=no, status=no, menubar=no, scrollbars=no, resizable=no, copyhistory=no, width='+w+', height='+h+', top='+top+', left='+left);
+}
+</script>
 	
 {% endblock content %}

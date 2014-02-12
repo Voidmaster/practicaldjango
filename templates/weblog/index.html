@@ -1,0 +1,22 @@
+{% extends "base_entries.html" %}
+
+{% block content %}
+	HOLA</br>
+	</br>
+	</br>
+	</br>
+	</br>
+	</br>
+	</br>
+	</br>
+	</br>
+	</br>
+	</br>
+	{% for news in last_news %}
+		{{ news.title }}		
+	{% endfor %}
+
+	{% for artist in artists %}
+		{{ artist.nombre }}
+	{% endfor %}
+{% endblock content %}

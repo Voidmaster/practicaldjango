@@ -1,16 +1,57 @@
-{% extends "base.html" %}
-{% load staticfiles %}
-
-{% block content %}
-
-<div id="artistas">
-	<ul class="graphic">
-		<li>
-			<a href="{% static object.tema1.url %}" class="inline-playable">Fury</a>
-		</li>
-	</ul>
+<!doctype html>
+<html lang="en">
+<head>
 	
-</div>
+	{% load staticfiles %}
+	<meta charset="UTF-8">
+	<title>{% block title %}{% endblock title %}</title>
+	{% load staticfiles %}
+	<link rel="stylesheet" href="{% static "weblog/style.css" %}" />
+	<link rel="stylesheet" href="{% static "weblog/inlineplayer.css" %}" />
+	<script type="text/javascript" src="{% static "weblog/scripts/sound.js" %}"></script>
+</head>
+
+<body>
+<div id="artistass">
+	<div id="contexto">
+		<div id="detail">
+
+			<h1>{{ object.nombre }}</h1></br>
+
+			<div id="canciones">
+				{% for cancion in object.canciones_set.all %}
+					{{ cancion }}					
+				{% endfor %}
+			</div>
 	
-{% endblock content %}
+			<div id="repr">					
+			<ul class="graphic">
+				
+
+			</ul>
+			</div>
+
+			<div id="related"></div>
+			<div id="related2"></div>
+			<div id="related3"></div>		
+
+		</div>
+
+		
+
+		<div id="disco">
+			
+		</div>
+
+
+	</div>
+	
+</div>	
+</body>
+</html>
+
+
+
+
+
 

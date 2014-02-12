@@ -1,8 +1,24 @@
-{{ encuesta_activa.titulo }}
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	{% load staticfiles %}
+	<link rel="stylesheet" href="{% static "weblog/style.css" %}" />
+	<style type="text/css">html {
+background: #FFFFFF no-repeat center center fixed; </style>
+</head>
+<div id="encuesta_content">
+	Encuesta
+
+<div style="titulo_encuesta">{{ encuesta_activa.titulo }}</div>
 <div>
-<form action="">
+<form action="{% url 'votar_encuesta' %}">
 {% for opcion in opciones_encuesta %}
-<option name="" value="{{ opcion.id }}">{{ opcion.texto }}</option>
+	<input type="radio" name="opcion" value="{{ opcion.id }}">{{ opcion.texto }}</input><br />
 {% endfor %}
+<input type="submit" name="votar_encuesta" value="Votar!"></input>
 </form>
 </div>
+</div>
+</body>
+</html>

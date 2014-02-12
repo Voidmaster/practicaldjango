@@ -11,10 +11,23 @@
 	<script type="text/javascript" src="{% static "weblog/scripts/jquery.js" %}"></script>
 	<script type="text/javascript" src="{% static "weblog/scripts/cloud-carousel.1.0.5.min.js" %}"></script>
 	<script type="text/javascript" src="{% static "weblog/scripts/sound.js" %}"></script>
-	<script type="text/javascript" src="{% static "weblog/scripts/inlineplayer.js" %}"></script>
+	<script type="text/javascript" src="{% static "weblog/scripts/jquery.roundabout.js" %}"></script>
+	<script type="text/javascript" src="{% static "weblog/scripts/jquery.roundabout-shapes.js" %}"></script>
 	<script>
 
 		$(document).ready(function() {
+			$('ul#car').roundabout({
+		         shape: 'tearDrop',
+		         reflect: true,
+		         autoplay: true,
+		         btnNext: ".next",
+		         btnPrev: ".prev",
+		         autoplayInitialDelay: 1000,
+		         autoplayDuration: 3000,
+		         duration: 2000,
+		         autoplayPauseOnHover: true
+		    });
+
     		$('#img').cycle({
 				fx: 'scrollRight',
 				speed: 1000,
@@ -118,18 +131,28 @@
 <body> 
 	
 	<div id="buscador">
-		<form action="">
-			<input type="text" value="Ingrese su búsqueda">
-			<input type="submit" value="Buscar">
-			<input type="radio" name="filtro" value="artistas" checked>Artistas
-			<input type="radio" name="filtro" value="noticias">Noticias
-		</form>
+		
 	</div>
 
 	<center>
 		<header>
+			<div id="search">
+				<img src="/static/weblog/images/inicio.png" alt="" id="uno">
+				<img src="/static/weblog/images/artistas.png" alt="" id="tres">
+				<img src="/static/weblog/images/servicios.png" alt="" id="cinco">
+				<img src="/static/weblog/images/difusores.png" alt="" id="siete">
+				<img src="/static/weblog/images/elzaino.png" alt="" id="nueve">
+				<img src="/static/weblog/images/contacto.png" alt="" id="once">
+			</div>
 			<nav>
-				
+				<form method="get" action="/search/">
+					<p><label for="id_q"></label>
+						<input type="text" name="q" id="id_q" value="{{ query }}" />
+						<input type="submit" value="Buscar"	/>
+						<input type="radio" name="tipo" value="artistas">Artistas</input>
+						<input type="radio" name="tipo" value="noticias">Noticias</input>					
+					</p>
+				</form>
 			</nav>
 		</header>
 	</center>

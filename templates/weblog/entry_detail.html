@@ -4,20 +4,46 @@
 	
 	<div id="article">
 		<h1>{{ object.title }}</h1>
+		<h4>{{ object.excerpt }}</h4>			
 		Fecha: {{ object.pub_date}} </br>
 		<img src="{{ object.image.url }}" alt="">
-		{{ object.body_html|safe }}
-		Tags: {{ object.tags }} </br>
-		Categoría: {% for category in entry.categories.all %}{{ category }}{% endfor %} </br>
-		Publicado por: {{ object.author }}
+		<div id="sabe">{{ object.body_html|safe }}</div>
+		<iframe width="600" height="345"
+		src="http://www.youtube.com/embed/{{ object.video }}">
+		</iframe></br>
+				
+		
 	</div>
+
+	<div id="side-bar">
+		
+		<div id="institucional3">
+				<object type="application/x-shockwave-flash" data="/static/weblog/images/publicidad4.swf" width="305" height="205">
+				    <param name="movie" value="/static/weblog/scripts/publicidad2.swf" />
+				    <param name="quality" value="high" />
+				    <param name="wmode" value="transparent" />
+				    <img src="noflash.png" width="300" height="200" alt="Imagen en sustitución de flash" />
+				</object>
+		</div>
+
+		<div id="locutor">
+					<object type="application/x-shockwave-flash" data="/static/weblog/scripts/publicidad.swf" width="305" height="200">
+				    <param name="movie" value="/static/weblog/scripts/publicidad.swf" />
+				    <param name="quality" value="high" />
+				    <param name="wmode" value="transparent" />
+				    <img src="noflash.png" width="300" height="200" alt="Imagen en sustitución de flash" />
+				</object>
+				</div>
+
+				<div id="google">
+					
+				</div>
+
+				<div id="crack">
+					
+		</div>
+	</div>
+
+	<div class="clear"></div>
 		
 {% endblock content %}
-
-{% block buscador %}
-	
-	<div id="buscador">
-		
-	</div>
-
-{% endblock buscador %}

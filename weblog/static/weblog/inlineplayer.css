@@ -102,14 +102,14 @@ ul.graphic li a.sm2_link {
  padding-left:22px;
  min-height:16px;
  vertical-align: middle;
- background-color:#336699;
+ background-color:#f0b011;
  border-radius:3px;
  padding:3px 3px 3px 25px;
  min-width:19em;
  _width:19em; /* IE 6 */
  text-decoration:none;
  font-weight:normal;
- color:#f6f9ff;
+ color:black;
 }
 
 ul.graphic li a.sm2_link {
